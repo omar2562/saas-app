@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 		match '/login', to: 'users#login',     via: 'post'
 	end
 
+	namespace :admin do
+		resources :tenants
+	end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

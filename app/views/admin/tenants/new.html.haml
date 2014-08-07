@@ -1,0 +1,13 @@
+%h1 Create New Tenant
+= form_tag admin_tenants_path do
+
+	= label :tenant, :title, 'Title'
+	= text_field :tenant, 'title'
+	
+	= label :tenant, :description, 'Description'
+	= text_field :tenant, 'description'	
+
+	= label :tenant, :logo, 'Logo'
+	= text_field :tenant, 'logo'
+
+	= submit_tag 'Save Changes'

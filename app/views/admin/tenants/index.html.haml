@@ -1,0 +1,14 @@
+%h1 All Tenants
+%table#tenant
+	%thead
+		%tr
+			%th Id
+			%th Title
+			%th More Info
+		%tbody
+		- @tenants.each do |tenant|
+			%tr
+				%td= tenant.id
+				%td= tenant.title
+				%td= link_to "More about #{tenant.title}", admin_tenant_path(tenant)
+= link_to 'Add new tenant', new_admin_tenant_path

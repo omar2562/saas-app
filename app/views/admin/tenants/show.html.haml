@@ -1,0 +1,16 @@
+
+%h2 Details about #{@tenant.title}
+
+%h3 Description:
+
+%p#description= @tenant.description
+
+Logo:
+= @tenant.logo
+
+<br/>
+= link_to 'Edit', edit_admin_tenant_path(@tenant)
+<br/>
+= button_to 'Delete', admin_tenant_path(@tenant), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to tenant list', admin_tenants_path
+
