@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 	namespace :api do
-		resources :users
+		resources :users, :tenants
 		match '/login', to: 'users#login',     via: 'post'
 	end
 
