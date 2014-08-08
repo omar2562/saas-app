@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20140807174213) do
     t.datetime "updated_at"
   end
 
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
   create_table "tenants", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -41,11 +46,6 @@ ActiveRecord::Schema.define(version: 20140807174213) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "users_roles", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
   end
 
 end

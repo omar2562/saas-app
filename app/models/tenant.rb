@@ -1,3 +1,3 @@
 class Tenant < ActiveRecord::Base
-	has_many :role
+	has_many :roles
 end

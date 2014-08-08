@@ -12,6 +12,12 @@ class Admin::TenantsController < ApplicationController
 
 	def create
 		@tenant = Tenant.create(tenant_params)
+		role = Role.new do |r| 
+			r.name = 'Admin'
+			r.tenant = @tenant
+			r.users << User.find_by(name: params[:admin][:name])
+		end
+		role.save
 		flash[:notice] = "#{@tenant.title} was successfully created."
 		redirect_to admin_tenants_path
 	end
