@@ -1,0 +1,9 @@
+
+%h1 Edit Existing Role
+
+= form_tag tenant_role_path(params[:name], @role), :method => :put do
+
+	= label :role, :name, 'Name'
+	= text_field :role, 'name'
+
+	= submit_tag 'Update Role Info'

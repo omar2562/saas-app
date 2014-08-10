@@ -1,0 +1,14 @@
+%h1 Roles of #{params[:name]}
+%table#role
+	%thead
+		%tr
+			%th Id
+			%th Name
+			%th More Info
+		%tbody
+		- @roles.each do |role|
+			%tr
+				%td= role.id
+				%td= role.name
+				%td= link_to "More about #{role.name}", tenant_role_path(params[:name], role)
+= link_to 'Add new role', new_tenant_role_path

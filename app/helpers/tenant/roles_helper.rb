@@ -1,0 +1,2 @@
+module Tenant::RolesHelper
+end

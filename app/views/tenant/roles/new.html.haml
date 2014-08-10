@@ -1,0 +1,7 @@
+%h1 Create New Role
+= form_tag tenant_roles_path do
+
+	= label :role, :name, 'Name'
+	= text_field :role, 'name'
+	
+	= submit_tag 'Save Changes'

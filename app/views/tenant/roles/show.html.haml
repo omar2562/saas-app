@@ -1,0 +1,12 @@
+
+%h2 Details about #{@role.name} of #{params[:name]}
+
+Name:
+= @role.name
+
+<br/>
+= link_to 'Edit', edit_tenant_role_path(params[:name], @role)
+<br/>
+/
+	= button_to 'Delete', tenant_role_path(params[:name], @role), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to role list', tenant_roles_path

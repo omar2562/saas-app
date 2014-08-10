@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
 
+	#saas-app API 
 	namespace :api do
 		resources :users, :tenants
 		match '/login', to: 'users#login',     via: 'post'
 	end
+	
+	#saas-app webApp	
 
 	namespace :admin do
 		resources :tenants
 	end
 
-	get 'tenant/:name', to: 'tenant#index' 
-
+#	get 'tenant/:name', to: 'tenant#index' 
+	
+	scope 'tenant/:name', module: 'tenant', as: 'tenant' do
+		root 'tenants#index' 
+		resources :roles, :users
+	end
+	
+	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
