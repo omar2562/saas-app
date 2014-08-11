@@ -1,0 +1,22 @@
+%h1 Users with 
+= form_tag tenant_link_path do
+
+	= label :user, :name, 'Name'
+	= text_field :user, 'name'
+		
+	= submit_tag 'Add'
+	
+%table#users
+	%thead
+		%tr
+			%th Id
+			%th Name
+			%th Email
+			%th Break Link
+		%tbody
+		- @users.each do |user|
+			%tr
+				%td= user.id
+				%td= user.name
+				%td= user.email
+				%td= link_to 'Unlink', tenant_unlink_path(params[:name], params[:id], user)

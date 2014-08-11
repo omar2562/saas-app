@@ -33,4 +33,23 @@ class Tenant::RolesController < ApplicationController
 		redirect_to tenant_role_path(params[:name], @role)
 	end
 	
+	def users
+		role = Role.find_by(id: params[:id])
+		@users = role.users
+	end
+	
+	def link
+		@role = Role.find_by(id: params[:id])
+		@role.users << User.find_by(name: params[:user][:name])
+		@role.save!
+		redirect_to tenant_users_path(params[:name], @role)
+	end
+	
+	def unlink
+		@role = Role.find_by(id: params[:id])
+		@role.users.delete(User.find_by(id: params[:userId]))
+		@role.save!
+		redirect_to tenant_users_path(params[:name], @role)
+	end
+	
 end

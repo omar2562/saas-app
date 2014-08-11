@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 	
 	scope 'tenant/:name', module: 'tenant', as: 'tenant' do
 		root 'tenants#index' 
-		resources :roles, :users
+		resources :roles
+		match 'roles/:id/users', to: 'roles#users', via: 'get', as: 'users'
+		match 'roles/:id/users', to: 'roles#link', via: 'post', as: 'link'
+		match 'roles/:id/users/:userId', to: 'roles#unlink', via: 'get', as: 'unlink'
 	end
 	
 	
